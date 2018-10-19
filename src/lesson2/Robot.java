@@ -5,9 +5,15 @@
 package lesson2;
 
 public class Robot {
-    int x = 0;
-    int y = 0;
-    Direction direction = Direction.UP;
+    private int x ;
+    private int y ;
+    private Direction direction ;
+
+    public Robot (int firstX, int firstY, Direction firstDirection) {
+        x = firstX;
+        y = firstY;
+        direction = firstDirection;
+    }
 
     public Direction getDirection() {
         return direction;
@@ -23,74 +29,67 @@ public class Robot {
 
     public void turnLeft() {
         System.out.println("Поворот против часовой стрелки");
-        if (direction == Direction.DOWN) {
-            this.direction = Direction.RIGHT;
-            return;
-        }
-
-        if (direction == Direction.UP) {
-            this.direction = Direction.LEFT;
-            return;
-        }
-
-        if (direction == Direction.LEFT) {
-            this.direction = Direction.DOWN;
-            return;
-        }
-
-        if (direction == Direction.RIGHT) {
-            this.direction = Direction.UP;
-            return;
+        switch (direction) {
+            case UP:
+                direction=Direction.LEFT;
+                System.out.println("Вверх -> налево");
+                break;
+            case LEFT:
+                direction=Direction.DOWN;
+                System.out.println("Налево -> вниз");
+                break;
+            case DOWN:
+                direction=Direction.RIGHT;
+                System.out.println("Вниз -> направо");
+                break;
+            case RIGHT:
+                direction=Direction.UP;
+                System.out.println("Направо -> вверх");
+                break;
         }
     }
 
     public void turnRight() {
-        System.out.println("поворот по часовой стрелке");
-        if (this.direction == Direction.DOWN) {
-            System.out.println("Вниз -> влево");
-            this.direction = Direction.LEFT;
-            return;
-        }
-
-        if (this.direction == Direction.UP) {
-            System.out.println("Вверх -> вправо");
-            this.direction = Direction.RIGHT;
-            return;
-        }
-
-        if (this.direction == Direction.LEFT) {
-            System.out.println("Влево -> вверх");
-            this.direction = Direction.UP;
-            return;
-        }
-
-        if (this.direction == Direction.RIGHT) {
-            System.out.println("Вправо -> вниз");
-            this.direction = Direction.DOWN;
-            return;
+        System.out.println("Поворот по часовой стрелке");
+        switch (direction) {
+            case DOWN:
+                direction=Direction.LEFT;
+                System.out.println("Вниз -> налево");
+                break;
+            case UP:
+                direction=Direction.RIGHT;
+                System.out.println("Вверх -> направо");
+                break;
+            case LEFT:
+                direction=Direction.UP;
+                System.out.println("Налево -> вверх");
+                break;
+            case RIGHT:
+                direction=Direction.DOWN;
+                System.out.println("Направо -> вниз");
+                break;
         }
     }
 
     public void stepForward() {
-        System.out.println("движение");
-        if (direction == Direction.DOWN) {
-            System.out.println("вниз");
-            this.y--;
-        }
-
-        if (direction == Direction.UP) {
-            System.out.println("вверх");
-            this.y++;
-        }
-
-        if (direction == Direction.LEFT) {
-            System.out.println("налево");
-            this.x--;
-        }
-
-        if (direction == Direction.RIGHT) {
-            System.out.println("направо");
-            this.x++;
+        System.out.println("Движение");
+        switch (direction) {
+            case UP:
+                System.out.println("Вверх");
+                y++;
+                break;
+            case RIGHT:
+                System.out.println("Направо");
+                x++;
+                break;
+            case DOWN:
+                System.out.println("Вниз");
+                y--;
+                break;
+            case LEFT:
+                System.out.println("Налево");
+                x--;
+                break;
         }
     }
 }

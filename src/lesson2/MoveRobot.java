@@ -7,10 +7,9 @@ package lesson2;
 
 public class MoveRobot {
     public void start() {
-        Robot robot=new Robot();
-        moveRobot(robot,-5,-5);
+        Robot robot=new Robot(0,0,Direction.UP);
+        moveRobot(robot,5,5);
     }
-
     public void moveRobot(Robot robot,int toX,int toY) {
         int x;
         int y;
@@ -59,6 +58,5 @@ public class MoveRobot {
             }
 
         }
-
     }
 }
