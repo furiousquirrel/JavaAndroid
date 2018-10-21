@@ -2,11 +2,11 @@ package lesson3;
 
 import java.util.Objects;
 
-public class Animal {
-    private static String species;
-    private static String breed;
-    private static String name;
-    private  Status state=Status.LIVE;
+public abstract class Animal {
+    private String species;
+    private String breed;
+    private String name;
+    private Status state=Status.LIVE;
 
     public Animal(String species, String breed, String name) {
         this.species = species;
@@ -14,20 +14,16 @@ public class Animal {
         this.name = name;
     }
 
+    public Status getState() {
+        return state;
+    }
+
     @Override
-    public String toString() {
+    final public String toString() {
         return species + " " + breed + " " + name;
     }
 
-    public void talk() {
-        if (state == Status.LIVE) {
-            if (species.equals("Кошка")) {
-                System.out.println("Мяу");
-            } else if (species.equals("Собака")) {
-                System.out.println("Гав");
-            }
-        }
-    }
+    public abstract void talk();
 
     @Override
     public int hashCode() {
