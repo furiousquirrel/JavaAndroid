@@ -5,12 +5,19 @@
 
 package lesson2;
 
-public class MoveRobot {
-    public void start() {
-        Robot robot=new Robot(0,0,Direction.UP);
-        moveRobot(robot,5,5);
+public class MoveRobot implements Runnable{
+private final Robot robot;
+private final int toX;
+private final int toY;
+
+
+    public MoveRobot(Robot robot1, int toX, int toY) {
+        this.robot = robot1;
+        this.toX = toX;
+        this.toY = toY;
     }
-    public void moveRobot(Robot robot,int toX,int toY) {
+
+    public void moveRobot() {
         int x;
         int y;
         Direction nowDirection;
@@ -58,5 +65,10 @@ public class MoveRobot {
             }
 
         }
+    }
+
+    @Override
+    public void run() {
+            this.moveRobot();
     }
 }

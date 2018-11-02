@@ -8,11 +8,16 @@ public class Robot {
     private int x ;
     private int y ;
     private Direction direction ;
+    private String name;
 
-    public Robot (int firstX, int firstY, Direction firstDirection) {
+    public Robot (int firstX, int firstY, Direction firstDirection,String name) {
         x = firstX;
         y = firstY;
         direction = firstDirection;
+        this.name=name;
+    }
+    public String GetName() {
+        return name;
     }
 
     public Direction getDirection() {
@@ -28,66 +33,66 @@ public class Robot {
     }
 
     public void turnLeft() {
-        System.out.println("Поворот против часовой стрелки");
+        System.out.println(name+" повернул против часовой стрелки");
         switch (direction) {
             case UP:
                 direction=Direction.LEFT;
-                System.out.println("Вверх -> налево");
+                System.out.println(name+" повернул вверх -> налево");
                 break;
             case LEFT:
                 direction=Direction.DOWN;
-                System.out.println("Налево -> вниз");
+                System.out.println(name+" повернул налево -> вниз");
                 break;
             case DOWN:
                 direction=Direction.RIGHT;
-                System.out.println("Вниз -> направо");
+                System.out.println(name+" повернул вниз -> направо");
                 break;
             case RIGHT:
                 direction=Direction.UP;
-                System.out.println("Направо -> вверх");
+                System.out.println(name+" повернул направо -> вверх");
                 break;
         }
     }
 
     public void turnRight() {
-        System.out.println("Поворот по часовой стрелке");
+        System.out.println(name+" повернул по часовой стрелке");
         switch (direction) {
             case DOWN:
                 direction=Direction.LEFT;
-                System.out.println("Вниз -> налево");
+                System.out.println(name+" повернул вниз -> налево");
                 break;
             case UP:
                 direction=Direction.RIGHT;
-                System.out.println("Вверх -> направо");
+                System.out.println(name+" поверенул вверх -> направо");
                 break;
             case LEFT:
                 direction=Direction.UP;
-                System.out.println("Налево -> вверх");
+                System.out.println(name+" поверенул налево -> вверх");
                 break;
             case RIGHT:
                 direction=Direction.DOWN;
-                System.out.println("Направо -> вниз");
+                System.out.println(name+" поверенул направо -> вниз");
                 break;
         }
     }
 
     public void stepForward() {
-        System.out.println("Движение");
+        System.out.println(name+" движется");
         switch (direction) {
             case UP:
-                System.out.println("Вверх");
+                System.out.println(name+" движется вверх");
                 y++;
                 break;
             case RIGHT:
-                System.out.println("Направо");
+                System.out.println(name+" движеся направо");
                 x++;
                 break;
             case DOWN:
-                System.out.println("Вниз");
+                System.out.println(name+" движется вниз");
                 y--;
                 break;
             case LEFT:
-                System.out.println("Налево");
+                System.out.println(name+" движется налево");
                 x--;
                 break;
         }
